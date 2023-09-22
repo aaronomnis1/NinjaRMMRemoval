@@ -1,0 +1,2 @@
+# NinjaRMMRemoval
+Remove Ninja RMM
