@@ -1,4 +1,10 @@
 
+If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
+    Write-Host "Administrator rights were not detected! Attempting to run as an administrator now.."
+        Start-Process powershell.exe "-noProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs 
+    Exit
+}
+
 Function RemoveNinjaRMM {
 # Ninja Uninstall Script with support for reamoving TeamViewer if '-DelTeamViewer' parameter is used
 # to be deleted:
